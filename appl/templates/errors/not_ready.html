@@ -1,0 +1,20 @@
+{% extends 'layout.html' %}
+
+{% block title %}Not Ready{% endblock %}
+
+{% block content %}
+<div class="container friendly-error">
+  <div class="row">
+    <div class="col-lg-2">
+      <img src="/static/img/placeholder-160x160.gif" alt="Logo">
+    </div>
+    <div class="col-lg-6">
+      <h2>该功能尚未开放，敬请耐心等待。</h2>
+    </div>
+    <div class="col-lg-4">
+      <h3>您还可以：</h3>
+      {% include 'errors/recommends.html' %}
+    </div>
+  </div>
+</div>
+{% endblock %}

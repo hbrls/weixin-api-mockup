@@ -1,0 +1,58 @@
+@import "vendor/bootstrap";
+@import "vendor/datepicker3";
+@import "vendor/font-awesome";
+
+body {
+  padding-top: 80px;
+}
+
+.anchor {
+  padding-top:50px;
+  margin-top: -50px;
+}
+
+footer {
+  margin-top: 20px;
+  border-top: solid 1px #ccc;
+  padding: 10px 0;
+  color: #929292;
+  a {
+    color: #999;
+    &:hover {
+      color: #333;
+    }
+  }
+}
+
+.hide-o {
+  /* bootstrap use !important for .hide, so that it will never show up again */
+  display: none;
+}
+
+header .user-avatar > a {
+  padding-top: 10px;
+  padding-bottom: 8px;
+}
+
+.container.friendly-error {
+  margin-top: 48px;
+  margin-bottom: 96px;
+}
+
+.flash_message {
+  position: absolute;
+  top: 40px;
+  left: 50%;
+  width: 500px;
+  z-index: 9999;
+  .alert {
+    margin-left: -250px;
+    margin-right: 250px;
+  }
+}
+
+@import "debug";
+// @import "upload";
+@import "login";
+@import "profile";
+@import "user";

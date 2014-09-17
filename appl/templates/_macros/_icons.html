@@ -1,0 +1,13 @@
+{% macro render_gender_icon(gender, class_='') %}
+  {% if gender == 1 %}
+  <i class="fa fa-male {{ class_ }}" title="男"></i>
+  {% endif %}
+
+  {% if gender == 2 %}
+  <i class="fa fa-female {{ class_ }}" title="女"></i>
+  {% endif %}
+
+  {% if gender == 3 %}
+  <i class="fa fa-child {{ class_ }}" title="保密"></i>
+  {% endif %}
+{% endmacro %}

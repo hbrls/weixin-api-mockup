@@ -1,0 +1,38 @@
+{% macro render_radio(field, label_class) %}
+{% for subfield in field -%}
+<label for="{{ subfield.id }}" class="{{ label_class }}">
+  {{ subfield }} {{ subfield.label.text }}
+</label>
+{%- endfor %}
+{% endmacro %}
+
+
+{% macro render_form_errors(form, col_class) %}
+{% if form.errors %}
+<div class="form-group">
+{% for name, errors in form.errors.items() %}
+<div class="{{ col_class }}">
+  <div class="alert alert-danger">
+    {% for err in errors %}{{ err }}{% endfor%}
+  </div>
+</div>
+{% endfor %}
+</div>
+{% endif %}
+{% endmacro %}
+
+{% macro render_form_flash(col_class) %}
+{% with messages = get_flashed_messages(with_categories=true) %}
+{% if messages %}
+  <div class="form-group">
+    {% for category, message in messages %}
+      <div class="{{ col_class }}">
+        <div class="alert {% if category == 'success' %}alert-success{% endif %} {% if category == 'error' %}alert-danger{% endif %}">
+          {{ message }}
+        </div>
+      </div>
+    {% endfor %}
+  </div>
+{% endif %}
+{% endwith %}
+{% endmacro %}

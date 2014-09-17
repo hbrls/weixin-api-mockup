@@ -1,0 +1,95 @@
+{% extends 'layout.html' %}
+{% set active_nav = 'nav_index' %}
+
+{% block title %}注册{% endblock %}
+
+{% block content %}
+<div class="container" ng-controller="LoginCtrl">
+  <div class="jumbotron">
+    <div class="row">
+      <div class="col-lg-5 col-lg-offset-7">
+        <ul class="nav nav-tabs">
+          <li><a href="{{ url_for('auth.login') }}">登录</a></li>
+          <li class="active"><a>注册</a></li>
+        </ul>
+
+        <div class="tab-content">
+          <div class="tab-pane active" id="signup">
+            <form class="form-horizontal" role="form" method="POST" action="{{ url_for('auth.signup') }}">
+              {{ signup_form.hidden_tag() }}
+              {% for name, errors in signup_form.errors.items() %}
+              <div class="alert alert-danger">
+                {% for err in errors %}{{ err}} {% endfor%}
+              </div>
+              {% endfor %}
+              <div class="form-group">
+                {{ signup_form.nickname.label(class_="col-lg-2 control-label") }}
+                <div class="col-lg-10">
+                  {{ signup_form.nickname(class_="form-control") }}
+                </div>
+              </div>
+              <div class="form-group">
+                {{ signup_form.email.label(class_="col-lg-2 control-label") }}
+                <div class="col-lg-10">
+                  {{ signup_form.email(class_="form-control") }}
+                </div>
+              </div>
+              <div class="form-group">
+                {{ signup_form.password.label(class_="col-lg-2 control-label") }}
+                <div class="col-lg-10">
+                  {{ signup_form.password(class_="form-control") }}
+                </div>
+              </div>
+              <div class="form-group">
+                <div class="col-lg-10 col-lg-offset-2">
+                  <label class="checkbox-inline" for="{{ signup_form.agree.id }}">
+                    {{ signup_form.agree }}{{ signup_form.agree.label.text }}
+                  </label>
+                </div>
+              </div>
+              <div class="form-group">
+                <div class="col-lg-10 col-lg-offset-2">
+                  {{ signup_form.submit(class_="btn btn-primary") }}
+                  <a href="{{ url_for('auth.login') }}" class="btn btn-link">已有帐号？点击登录</a>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row pic-flow">
+      <div class="col-lg-2">
+        <a href="{{ url_for('home.not_ready') }}" class="thumbnail">
+          <img src="/static/img/placeholder-135x93.gif" alt="">
+        </a>
+      </div>
+      <div class="col-lg-2">
+        <a href="{{ url_for('home.not_ready') }}" class="thumbnail">
+          <img src="/static/img/placeholder-135x93.gif" alt="">
+        </a>
+      </div>
+      <div class="col-lg-2">
+        <a href="{{ url_for('home.not_ready') }}" class="thumbnail">
+          <img src="/static/img/placeholder-135x93.gif" alt="">
+        </a>
+      </div>
+      <div class="col-lg-2">
+        <a href="{{ url_for('home.not_ready') }}" class="thumbnail">
+          <img src="/static/img/placeholder-135x93.gif" alt="">
+        </a>
+      </div>
+      <div class="col-lg-2">
+        <a href="{{ url_for('home.not_ready') }}" class="thumbnail">
+          <img src="/static/img/placeholder-135x93.gif" alt="">
+        </a>
+      </div>
+      <div class="col-lg-2">
+        <a href="{{ url_for('home.not_ready') }}" class="thumbnail">
+          <img src="/static/img/placeholder-135x93.gif" alt="">
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}

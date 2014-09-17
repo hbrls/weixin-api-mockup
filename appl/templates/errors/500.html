@@ -1,0 +1,22 @@
+{% extends 'layout.html' %}
+
+{% block title %}500{% endblock %}
+
+{% block content %}
+<div class="container friendly-error">
+  <div class="row">
+    <div class="col-lg-2">
+      <img src="/static/img/placeholder-160x160.gif" alt="Logo">
+    </div>
+    <div class="col-lg-6">
+      <h2>出错啦，我们会尽快检查并修复这个错误</h2>
+      <h2>给您带来的不便敬请谅解</h2>
+      <p>{{ error }}</p>
+    </div>
+    <div class="col-lg-4">
+      <h3>您还可以：</h3>
+      {% include 'errors/recommends.html' %}
+    </div>
+  </div>
+</div>
+{% endblock %}

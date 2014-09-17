@@ -1,0 +1,21 @@
+{% extends 'layout.html' %}
+
+{% block title %}403{% endblock %}
+
+{% block content %}
+<div class="container friendly-error">
+  <div class="row">
+    <div class="col-lg-2">
+      <img src="/static/img/placeholder-160x160.gif" alt="Logo">
+    </div>
+    <div class="col-lg-6">
+      <h2>您无权访问该页面，</h2>
+      <h2>请仔细检查后点击刷新再次尝试</h2>
+    </div>
+    <div class="col-lg-4">
+      <h3>您还可以：</h3>
+      {% include 'errors/recommends.html' %}
+    </div>
+  </div>
+</div>
+{% endblock %}

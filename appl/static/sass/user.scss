@@ -1,0 +1,130 @@
+.user-profile {
+  .user-avatar {
+
+  }
+  .user-info {
+    padding: 8px;
+    list-style: none;
+    li {
+      line-height: 200%;
+      .fa {
+        margin-right: 6px;
+        &:nth-child(2) {
+          margin-left: 16px;
+        }
+      }
+    }
+  }
+  .social-links {
+    a {
+      padding-left: 6px;
+      padding-right: 6px;
+    }
+  }
+  h2 {
+    margin-bottom: 20px;
+  }
+  .nav {
+    margin-bottom: 10px;
+  }
+  .user-interact {
+    margin-bottom: 20px;
+  }
+}
+
+.user-level {
+  position: relative;
+  height: 120px;
+  .badge {
+    position: absolute;
+    bottom: 0;
+  }
+}
+
+.user-info {
+  padding-bottom: 0;
+  .row {
+    line-height: 225%;
+    small {
+      color: #ddd;
+      margin: 0 16px;
+    }
+  }
+}
+
+.user-card {
+  position: relative;
+  margin-bottom: 28px;
+  border: solid 1px #edecec;
+  .avatar {
+    width: 50px;
+    padding-top: 10px;
+  }
+  address {
+    color: #999;
+    margin-top: 10px;
+    margin-bottom: 10px;
+  }
+  .user-info {
+    h5 {
+      font-size: 16px;
+      margin-top: 16px;
+      margin-bottom: 16px;
+      small {
+        margin-left: 16px;
+      }
+      i.fa {
+        margin-left: 16px;
+        color: #ccc;
+      }
+    }
+    h6 {
+      color: #ccc;
+    }
+    hr {
+      margin-top: 10px;
+    }
+  }
+  label {
+    position: absolute;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    top: 10px;
+    right: 10px;
+    &.badge-leader { background-color: #d9534f; }
+    &.badge-admin { background-color: #f0ad4e; }
+    &.badge-member { background-color: #5cb85c; }
+    &.badge-applicant { background-color: #ccc; }
+  }
+  .user-tags {
+    span {
+      display: block;
+      width: 80px;
+      height: 34px;
+      padding: 8px;
+      margin-bottom: 10px;
+      border-radius: 2px;
+      text-align: center;
+      &.normal {
+        border: solid 1px #ccc;
+      }
+      &.verified {
+        border: solid 1px #5cb85c;
+      }
+      &.empty {
+        border: dashed 1px #ccc;
+      }
+    }
+  }
+  .user-stats {
+    border-top: solid 1px #eee;
+    margin-top: 16px;
+    .btn-link {
+      font-size: 12px;
+    }
+    .member-admin {
+      position: relative;
+    }
+  }
+}

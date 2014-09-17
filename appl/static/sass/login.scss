@@ -1,0 +1,26 @@
+.jumbotron {
+  background-image: url(../img/bg-circuit.png);
+  .nav-tabs > li:not(.active) > a {
+    background-color: #eee;
+  }
+}
+
+#login, #signup {
+  form {
+    height: 320px;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-top: none;
+    padding-top: 30px;
+    padding-left: 15px;
+    padding-right: 15px;
+  }
+  .alert-danger {
+    padding-top: 6px;
+    padding-bottom: 6px;
+  }
+}
+
+.pic-flow {
+  margin-top: 32px;
+}

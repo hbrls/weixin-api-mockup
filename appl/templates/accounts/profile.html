@@ -1,0 +1,53 @@
+{% from '_macros/_form.html' import render_radio, render_form_errors, render_form_flash %}
+
+{% extends 'accounts/layout.html' %}
+{% set active_accounts_nav = 'accounts_profile' %}
+
+{% block title %}个人介绍{% endblock %}
+
+{% block accounts_main %}
+<form class="form-horizontal" role="form" method="POST" action="">
+  {{ form.hidden_tag() }}
+
+  {{ render_form_errors(form, 'col-lg-6 col-lg-offset-2') }}
+
+  {{ render_form_flash('col-lg-6 col-lg-offset-2') }}
+
+  <div class="form-group">
+    {{ form.gender.label(class_="col-lg-2 control-label") }}
+    <div class="col-lg-6">
+      {{ render_radio(form.gender, label_class="radio-inline") }}
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="user-birthdate" class="col-lg-2 control-label">生日</label>
+    <div class="col-lg-6">
+      {{ form.birthdate(class_="form-control js-datepicker") }}
+    </div>
+  </div>
+  <div class="form-group">
+    {{ form.location.label(class_="col-lg-2 control-label") }}
+    <div class="col-lg-6">
+      {{ form.location(class="form-control") }}
+    </div>
+  </div>
+  <div class="form-group">
+    {{ form.title.label(class_="col-lg-2 control-label") }}
+    <div class="col-lg-10">
+      {{ form.title(class_="form-control") }}
+    </div>
+  </div>
+  <div class="form-group">
+    <div class="col-lg-10 col-lg-offset-2">
+      {{ form.submit(class_="btn btn-primary") }}
+      <button class="btn btn-link" type="reset">撤销</button>
+    </div>
+  </div>
+</form>
+{% endblock %}
+
+{% block js %}
+<script>
+  requirejs(['helpers/datepicker']);
+</script>
+{% endblock %}

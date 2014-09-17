@@ -1,0 +1,22 @@
+{% extends 'layout.html' %}
+{% set active_nav = 'nav_accounts' %}
+
+{% block content %}
+<div class="container">
+  <div class="row">
+    <div class="col-lg-2">
+      <ul class="nav nav-pills nav-stacked">
+        <li class="{% if active_accounts_nav == 'accounts_profile' %}active{% endif %}"><a href="{{ url_for('accounts.profile') }}">个人介绍</a></li>
+        <li class="{% if active_accounts_nav == 'accounts_basic' %}active{% endif %}"><a href="{{ url_for('accounts.basic') }}">注册资料</a></li>
+        <li class="{% if active_accounts_nav == 'accounts_reset_password' %}active{% endif %}"><a href="{{ url_for('accounts.reset_password') }}">修改密码</a></li>
+      </ul>
+    </div>
+    <div class="col-lg-7">
+      {% block accounts_main %}{% endblock %}
+    </div>
+    <div class="col-lg-3">
+      我们对用户的注册信息进行绝对保密，不会泄漏给任何第三方或其他人
+    </div>
+  </div>
+</div>
+{% endblock %}
