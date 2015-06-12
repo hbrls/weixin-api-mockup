@@ -1,8 +1,8 @@
 # -*- coding: utf-8 -*-
-from flask import Flask, render_template, request
-from flask.ext.sqlalchemy import get_debug_queries
-from .extensions import db, login_manager
-from appl.user.models import read_user
+import logging
+from flask import Flask, render_template, request, jsonify
+# from flask.ext.sqlalchemy import get_debug_queries
+# from .extensions import db
 
 
 def create_app(config=None):
@@ -67,8 +67,8 @@ def configure_blueprints(app):
     from home.views import mod as home_views
     app.register_blueprint(home_views)
 
-    from housekeeper.views import mod as housekeeper_views
-    app.register_blueprint(housekeeper_views, url_prefix='/housekeepers')
+    from qrcode.views import mod as qrcode_views
+    app.register_blueprint(qrcode_views)
 
     # from user.views import mod as user_views
     # app.register_blueprint(user_views, url_prefix='/users')
@@ -81,10 +81,17 @@ def configure_error_handlers(app):
 
     @app.errorhandler(404)
     def ERROR404(e):
-        app.logger.warning('404: %s, %s, %s' % (request.url,
+        app.logger.warn('404: %s, %s, %s' % (request.url,
                                                 request.remote_addr,
                                                 request.user_agent.string))
-        return render_template('errors/404.html'), 404
+
+        app.logger.warn(request.args)
+        app.logger.warn(request.get_json(force=True, silent=True))
+
+        return jsonify({
+            'errcode': 48001,
+            'errmsg': 'The API is not mocked yet.',
+        }), 404
 
     @app.errorhandler(500)
     def ERROR500(e):
