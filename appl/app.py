@@ -12,14 +12,14 @@ def create_app(config=None):
     app.config.from_object(config)
 
     configure_logging(app)
-    configure_extensions(app)
+    # configure_extensions(app)
     configure_blueprints(app)
 
     from .template_filters import configure_template_filters
     configure_template_filters(app)
 
-    from .restful_apis import configure_apis
-    configure_apis(app)
+    # from .restful_apis import configure_apis
+    # configure_apis(app)
 
     configure_error_handlers(app)
 
@@ -30,53 +30,39 @@ def configure_logging(app):
     if app.debug:
         return
 
-    import logging
-    from logentries import LogentriesHandler
+    formatter = '%(asctime)s %(levelname)s %(name)s (%(lineno)s) %(message)s'
+    logging.basicConfig(format=formatter)
 
-    logentries_handler = LogentriesHandler(app.config['LOGENTRIES_TOKEN'])
-    logentries_handler.setLevel(logging.INFO)
-    app.logger.addHandler(logentries_handler)
-
-    app.logger.setLevel(logging.INFO)
+    base_logger = logging.getLogger('appl')
+    base_logger.setLevel(logging.DEBUG)
 
 
-def configure_extensions(app):
-    # Flask-SQLAlchemy
-    db.init_app(app)
+# def configure_extensions(app):
+    # # Flask-SQLAlchemy
+    # db.init_app(app)
 
-    @app.teardown_appcontext
-    def slow_queries(error):
-        for query in get_debug_queries():
-            if query.duration >= 0.5:
-                warning_message = """
-                SLOW QUERY: %s
-                Parameters: %s
-                Duration: %fs
-                Context: %s
-                """ % (query.statement,
-                       query.parameters,
-                       query.duration,
-                       query.context)
-                app.logger.warning(warning_message)
-
-    # Flask-Login
-    # http://flask-login.readthedocs.org/en/latest/
-    login_manager.login_view = 'auth.login'
-    login_manager.login_message = ''
-    login_manager.refresh_view = 'auth.reauth'
-
-    @login_manager.user_loader
-    def load_user(user_id):
-        return read_user(user_id)
-    login_manager.init_app(app)
+    # @app.teardown_appcontext
+    # def slow_queries(error):
+    #     for query in get_debug_queries():
+    #         if query.duration >= 0.5:
+    #             warning_message = """
+    #             SLOW QUERY: %s
+    #             Parameters: %s
+    #             Duration: %fs
+    #             Context: %s
+    #             """ % (query.statement,
+    #                    query.parameters,
+    #                    query.duration,
+    #                    query.context)
+    #             app.logger.warning(warning_message)
 
 
 def configure_blueprints(app):
-    from auth.views import mod as auth_views
-    app.register_blueprint(auth_views)
+    # from auth.views import mod as auth_views
+    # app.register_blueprint(auth_views)
 
-    from account.views import mod as account_views
-    app.register_blueprint(account_views, url_prefix='/accounts')
+    # from account.views import mod as account_views
+    # app.register_blueprint(account_views, url_prefix='/accounts')
 
     from home.views import mod as home_views
     app.register_blueprint(home_views)
@@ -84,8 +70,8 @@ def configure_blueprints(app):
     from housekeeper.views import mod as housekeeper_views
     app.register_blueprint(housekeeper_views, url_prefix='/housekeepers')
 
-    from user.views import mod as user_views
-    app.register_blueprint(user_views, url_prefix='/users')
+    # from user.views import mod as user_views
+    # app.register_blueprint(user_views, url_prefix='/users')
 
 
 def configure_error_handlers(app):

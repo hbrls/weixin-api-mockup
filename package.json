@@ -1,5 +1,5 @@
 {
-  "name": "www.judian.com",
+  "name": "weixin-api-mockup",
   "version": "0.1.0",
   "description": "",
   "main": "index.js",
@@ -11,13 +11,10 @@
   },
   "repository": {
     "type": "git",
-    "url": "git@github.com:shuaishuai/www.42smart.com.git"
+    "url": "git@github.com:hbrls/weixin-api-mockup"
   },
   "author": "shuaizhexu@gmail.com",
   "license": "MIT",
   "devDependencies": {
-    "grunt": "^0.4.4",
-    "grunt-sass": "^0.12.1",
-    "grunt-contrib-jshint": "^0.10.0"
   }
 }

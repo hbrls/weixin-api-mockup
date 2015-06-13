@@ -1,4 +1,2 @@
-probe
-=====
-
-http://probe.42smart.com
+Weixin API Mockup
+==

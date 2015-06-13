@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>{% block title %}{% endblock %}: Probe</title>
+    <title>{% block title %}{% endblock %}: Weixin MP Mockup</title>
 
     <link rel="shortcut icon" type="image/x-icon" href="{{ url_for('static', filename='favicon.ico') }}">
 
@@ -13,10 +13,6 @@
 
   <body>
   {% set active_nav = active_nav | default('nav_index') -%}
-
-    <input type="hidden" id="hi-current-user-id" value="{{ current_user.id }}">
-    {% block js_values %}{% endblock %}
-
     <div class="flash_message"></div>
 
     <div class="wrapper">
@@ -32,6 +28,5 @@
     {% block js_common %}{% endblock %}
     {% block js %}{% endblock %}
 
-    {% include 'partials/analytics.html' %}
   </body>
 </html>

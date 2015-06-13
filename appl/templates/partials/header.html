@@ -4,23 +4,10 @@
       <a class="navbar-brand" href="/">Probe</a>
     </div>
     <div class="collapse navbar-collapse">
-      {% if current_user.id %}
-      <ul class="nav navbar-nav">
-        <li class="ui-nav-item {% if active_nav == 'nav_index' %}active{% endif %}"><a href="{{ url_for('home.index') }}">首页</a></li>
-        <li class="ui-nav-item {% if active_nav == 'nav_housekeepers' %}active{% endif %}"><a href="{{ url_for('housekeeper.index')}}">管家</a></li>
-      </ul>
-      {% endif %}
+
 
       <ul class="nav navbar-nav navbar-right">
-        {% if current_user.id %}
-          <li class="user-avatar">
-            <a href="{{ url_for('users.index', uid=current_user.id) }}">
-              <img class="img-circle" src="{{ current_user.gravatar | gravatar_small }}" alt="{{ current_user.nickname }}">
-            </a>
-          </li>
-          <li class="{% if active_nav == 'nav_accounts' %}active{% endif %}"><a href="{{ url_for('accounts.profile') }}"><i class="fa fa-gear"></i></a></li>
-          <li><a href="{{ url_for('auth.logout') }}" title="注销"><i class="fa fa-sign-out"></i></a></li>
-        {% endif %}
+
       </ul>
     </div>
   </div>
