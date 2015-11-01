@@ -64,11 +64,14 @@ def configure_blueprints(app):
     # from account.views import mod as account_views
     # app.register_blueprint(account_views, url_prefix='/accounts')
 
-    from home.views import mod as home_views
+    from .home.views import mod as home_views
     app.register_blueprint(home_views)
 
-    from qrcode.views import mod as qrcode_views
+    from .qrcode.views import mod as qrcode_views
     app.register_blueprint(qrcode_views)
+
+    from .jssdk.views import mod as jssdk_views
+    app.register_blueprint(jssdk_views)
 
     # from user.views import mod as user_views
     # app.register_blueprint(user_views, url_prefix='/users')
